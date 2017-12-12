@@ -179,51 +179,5 @@ public class TimepieceView extends View {
             }
         }
     }
-    //绘制指针
-    private  void paintIndicator(Canvas canvas){
-        float x,y,x1,y1;
-        //获取当前时间
-        calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY); //时
-        int minute = calendar.get(Calendar.MINUTE); //分
-        int second = calendar.get(Calendar.SECOND); //秒
-        //绘制时针
-        x= (float) (Math.sin(Math.toRadians(hour*30))*(mRadius-DptoPx(55)));
-        y= -(float) (Math.cos(Math.toRadians(hour*30))*(mRadius-DptoPx(55)));
-        x1= (float) (Math.sin(Math.toRadians(hour*30+180))*DptoPx(20));
-        y1= -(float) (Math.cos(Math.toRadians(hour*30+180))*DptoPx(20));
-        mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(mHourPointColor);
-        mPaint.setStrokeWidth(1);
-        canvas.drawCircle(x,y,mHourPointWidth/2,mPaint);
-        canvas.drawCircle(x1,y1,mHourPointWidth/2,mPaint);
-        mPaint.setStrokeWidth(mHourPointWidth);
-        canvas.drawLine(x,y,x1,y1,mPaint);
-        //绘制分针
-        x= (float) (Math.sin(Math.toRadians(minute*6))*(mRadius-DptoPx(45)));
-        y= -(float) (Math.cos(Math.toRadians(minute*6))*(mRadius-DptoPx(45)));
-        x1= (float) (Math.sin(Math.toRadians(minute*6+180))*DptoPx(20));
-        y1= -(float) (Math.cos(Math.toRadians(minute*6+180))*DptoPx(20));
-        mPaint.setColor(mMinutePointColor);
-        mPaint.setStrokeWidth(1);
-        canvas.drawCircle(x,y,mMinutePointWidth/2,mPaint);
-        canvas.drawCircle(x1,y1,mMinutePointWidth/2,mPaint);
-        mPaint.setStrokeWidth(mMinutePointWidth);
-        canvas.drawLine(x,y,x1,y1,mPaint);
-        //绘制秒针
-        x= (float) (Math.sin(Math.toRadians(second*6))*(mRadius-DptoPx(5)));
-        y= -(float) (Math.cos(Math.toRadians(second*6))*(mRadius-DptoPx(5)));
-        x1= (float) (Math.sin(Math.toRadians(second*6+180))*DptoPx(20));
-        y1= -(float) (Math.cos(Math.toRadians(second*6+180))*DptoPx(20));
-        mPaint.setColor(mSecondPointColor);
-        mPaint.setStrokeWidth(1);
-        canvas.drawCircle(x,y,mSecondPointWidth/2,mPaint);
-        canvas.drawCircle(x1,y1,mSecondPointWidth/2,mPaint);
-        mPaint.setStrokeWidth(mSecondPointWidth);
-        canvas.drawLine(x,y,x1,y1,mPaint);
-        //绘制一个原点
-        mPaint.setColor(mSecondPointColor);
-        mPaint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(0, 0, DptoPx(10), mPaint);
-    }
+   
 }
