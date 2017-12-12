@@ -2,18 +2,12 @@
 自定义时钟
 可以用来练习自定义view
 下面是主要代码
-package com.example.libinyang.timepiecedemo;
-
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.util.ScreenUtils;
